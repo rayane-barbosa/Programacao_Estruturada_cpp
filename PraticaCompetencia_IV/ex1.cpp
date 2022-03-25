@@ -32,13 +32,13 @@ void separaLinha()
 }
 
 
-//Funcao Regitro de Alunos
-int registro()
+//Funcao formulario
+int formulario()
 {
-	
 	int RA[50], i, count=0;
 	int qtdAlunos = 50;
 	char nome[50];
+	char respostasQuestionario[10];
 	
 		for(i=1; i<=qtdAlunos; i++){
 			printf("Informe o RA: ");
@@ -51,6 +51,12 @@ int registro()
 			else {
 				printf("Infome o Nome:");
 				scanf("%s", &nome[i]);
+				for(i=1; i<=10; i++){
+				printf("Insira a resposta da %.ia questao: " , i);
+				
+				scanf("%s" , &respostasQuestionario[i]);
+				}
+	
 			}
 		}
 		
@@ -59,17 +65,22 @@ int registro()
 		/*for(i=1; i<=count-1; i++){
 		printf("RA aluno %i: %d - ", i, RA[i]);
 		printf("Nome aluno: %c \n",  nome[i]);
+		    for(i=1; i<=10; i++){
+		    printf("Resposta %.ia questao :  %c  -   ", i,  respostasQuestionario[i]);
+	}
 	
 		
-		}*/		
+		}	
 		
-		/*printf("%d", count-1);*/
+		printf("%d", count-1);*/
+		
 	
-}
+	
+	}
 
 
 //Funcao Questionario
-void questionario()
+/*void questionario()
 {
 	char respostasQuestionario[10], i;
 		for(i=1; i<=10; i++){
@@ -80,10 +91,10 @@ void questionario()
 
 
 
-		/*for(i=1; i<=10; i++){
+		for(i=1; i<=10; i++){
 		printf("Resposta da %.ia questao: %c \n", i, respostasQuestionario[i]);
-	}*/
-}
+	}
+}*/
 			
 
 
