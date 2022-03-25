@@ -31,7 +31,9 @@ void separaLinha()
 	printf("\n\n\n");
 }
 
-void registro()
+
+//Funcao Regitro de Alunos
+int registro()
 {
 	
 	int RA[50], i, count=0;
@@ -52,12 +54,16 @@ void registro()
 			}
 		}
 		
-		/*for(i=1; i<=count; i++){
+		//Mostra os valores que foram registrados excluindo o ultimo indice por ser = ou < que 0
+		
+		/*for(i=1; i<=count-1; i++){
 		printf("RA aluno %i: %d - ", i, RA[i]);
 		printf("Nome aluno: %c \n",  nome[i]);
 	
 		
 		}*/		
+		
+		/*printf("%d", count-1);*/
 	
 }
 
@@ -83,15 +89,31 @@ void questionario()
 
 int main(){
 	
+	int count=0;
+	
 	printf("Informe abaixo as respostas para criar o gabarito \n\n");
 	
 	gabarito();
 	
 	separaLinha();
 	
+	separaLinha();
+	
+	
+	registro();
+	
+	
+	separaLinha();
+	
 	printf("Registre abaixo as respostas do questionario: \n\n");
 	
+	do{
+	
 	questionario();
+	
+} while 
+
+
 	
 	separaLinha();
 	
