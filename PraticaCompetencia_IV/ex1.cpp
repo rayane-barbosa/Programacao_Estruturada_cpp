@@ -1,25 +1,36 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void corrigirProva(){
-	int quest,i, count=0;
-	char alt, gabarito[10];
-	
-	for(i=0; i<10;i++){
-	
-	printf("%.ia questao: \n", i+1);
-	scanf("%s", &gabarito[alt]);
-	
-	
-	}
-	printf("xxxxxxxxxxxx	Gabarito	xxxxxxxxxxxx");
-	for(i=0; i<10; i++){
-		printf("xxxxxx %.ia questao: %s \n	xxxxxx", i+1, gabarito[alt]);
-	}
 
+//Funcao recebe Gabarito
+void gabarito()
+{
+	
+	
+	char i, resposta[10];
+	
+	for(i=1; i<=10; i++){
+		printf("Insira a resposta da %.ia questao: " , i);
+		scanf("%s" , &resposta[i]);
+			
+			
+	}
+	
+	//Imprime os resultados do questionario
+	/*for(i=1; i<=10; i++){
+		printf("Resposta da %.ia questao: %c \n", i, resposta[i]);
+	}*/
+	
+}
+	
+	
+	
+	
+	
+			
 }
 
-int main (){
-	corrigirProva();
+int main(){
+	gabarito();
 	
 }
