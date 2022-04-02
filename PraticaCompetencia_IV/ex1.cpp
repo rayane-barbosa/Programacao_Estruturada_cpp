@@ -1,5 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include <iostream>
+
+using namespace std;
 
 
 //Funcao recebe Gabarito
@@ -14,10 +17,11 @@ void gabarito()
 	for(i=1; i<=10; i++){
 		printf("Insira a resposta da %.ia questao: " , i);
 		scanf("%s" , &resposta[i]);
-		if(resposta[i] == 'A' ||  resposta[i] == 'a' ||
-			resposta[i] == 'B' || resposta[i] == 'b' ||
-			resposta[i] == 'C' || resposta[i] == 'c'  ||
-			resposta[i] == 'D'  || resposta[i] == 'd'){		
+     	resposta[i] = toupper (resposta[i]);
+		if(resposta[i] == 'A' || 
+			resposta[i] == 'B' || 
+          	 resposta[i] == 'C' ||
+			resposta[i] == 'D'){		
 				
 			}
 			else{
@@ -32,7 +36,7 @@ void gabarito()
 		printf("Resposta da %.ia questao: %c \n", i, resposta[i]);
 	}*/
 	
-}
+}	
 
 void separaLinha()
 {
@@ -42,7 +46,7 @@ void separaLinha()
 
 //Funcao formulario
 void formulario()
-{
+{	//RA[considerando uma turma de 50 alunos]
 	int RA[50], i, j, count=0;
 	int qtdAlunos = 50;
 	/*char nome[50];*/
@@ -53,9 +57,11 @@ void formulario()
 			printf("Informe o RA: ");
 			scanf("%d", &RA[i]);
 			count ++;
-			if(RA[i]<=0)
 			
+			if(RA[i]<=0)
 				break;
+			
+			
 				
 			else {
 				/*printf("Infome o Nome:");
@@ -66,6 +72,7 @@ void formulario()
 				printf("Insira a resposta da %.ia questao: " , j);
 				fflush(stdin);
 				scanf("%s" , &respostasQuestionario[i]);
+				respostasQuestionario[i] = toupper(respostasQuestionario[i]);
 				}
 	
 			}
@@ -91,28 +98,75 @@ void formulario()
 	}
 	
 	
-	void corrigir(resposta[3], respostasQuestionario[3]){
-		int i, respostaCerta =0;
+typedef int (*corrigir)(int, char, char);
+
+int correcao(int RA[],char reposta[], char respostasQuestionario[], corrigir)
+{
+    int i, j, l, respostasCertas=0;
+    for(i=0; i<50; i++){
+        for(j=0; j<10; j++){
+            for(l=0; l<10; l++)
+                if(respostasQuestionario[j] == reposta[l]){
+                    respostasCertas++;
+                }
+                
+        }
+}
+
+	for(i=0; i<50; i++){
+        printf("RA: %d, ---- nota: %d  ", RA[i], respostasCertas);
+    }
+    
+}
+
+	
+void menu(){
+	int inicio = 1;
+	int RA[50];
 		
-		for(i=1; i<=3; i++){
-			if(resposta[i] == respostasQuestionario[i]){
-				respostaCerta ++;
-			}
+	printf("Escolha uma das opcoes para iniciar o programa \n\n");
+	printf("1. Para registrar o gabarito\n");
+	printf("2. Para preencher o formulário da avaliacao");
+	printf("3. Para corrigir");
+	scanf("%d", &inicio);
+	system("cls || clear");
+	
+	switch(inicio){
+		case 1:
+			gabarito();
+			break;
+	
+		case 2:
+			formulario();
+			break;
+		case 3:
+			correcao();
+			break;
+			
+		default:
+			printf("Digite uma opcao valida")
 		}
-		
-		
-		
-		
-		
 	}
 	
 	
 	
+}
 	
 	
-		
-
-
 int main(){
 	
+	menu();
 	
+	
+	
+	
+	
+	
+	
+
+}
+
+
+	
+
+
