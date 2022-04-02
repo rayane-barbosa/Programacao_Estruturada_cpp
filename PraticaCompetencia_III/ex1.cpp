@@ -45,7 +45,7 @@ int main (){
 	//Compara os dois conjuntos e realiza a intersecção
 	
 	
-	for(i=0; i<20; i++){
+	/*for(i=0; i<20; i++){
 		for(j=0; j<20; j++){
 			if(vetor_a[i]== vetor_b[j]){
 								if(tamc ==0){
@@ -64,17 +64,63 @@ int main (){
 							}
 	
 	
-						}
+						} */
 						
 // Imprime os valores do conjunto de intersecção : vetor_c
 
 	
-	for(i=0; i<tamc; i++){
+	/*for(i=0; i<tamc; i++){
 		printf("%.2f - ", vetor_c[i]);
-	}
+	}*/
 						
 		
 
+/*Aproveitando os conjuntos recebidos e ordenados o segundo exerício pede que o programa realize a união entre os conjuntor,
+ resultando no conjunto vetor_d*/		
+						
+		for(i=0; i<20; i++){
+			if(i==0){
+				
+				vetor_d[tamd] = vetor_a[i];
+					tamd ++;
+			}
+			else if(vetor_a[i] != vetor_d[tamd-1])
+			{
+				
+				vetor_d[tamd] = vetor_a[i];
+					tamd++;
+			}
+		}
+		
+		
+		for(i=0; i<20; i++){
+			teste =0;
+			for(j=0;j<20;j++){
+				
+				if(vetor_b[i] == vetor_d[j]){
+					teste =1;
+				}
+			}
+			
+			 if(teste ==0){
+			 	
+				vetor_d[tamd] = vetor_b[i];
+					tamd ++; 
+			}
+		
+		}
+		
+		// Imprime os valores do conjunto de união : vetor_d
+
+	
+		for(i=0; i<tamd; i++){
+			printf("%.2f - ", vetor_d[i]);
+		}
+		
+						
 
 }
+
+
+/*Ao executar o teste para imprimir o conjunto união vetor_d o mesmo não mostra os valores nos indices 9 e 10 */
 
