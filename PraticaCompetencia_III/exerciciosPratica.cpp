@@ -45,7 +45,7 @@ int main (){
 	//Compara os dois conjuntos e realiza a intersecção
 	
 	
-	/*for(i=0; i<20; i++){
+	for(i=0; i<20; i++){
 		for(j=0; j<20; j++){
 			if(vetor_a[i]== vetor_b[j]){
 								if(tamc ==0){
@@ -64,14 +64,14 @@ int main (){
 							}
 	
 	
-						} */
+						} 
 						
 // Imprime os valores do conjunto de intersecção : vetor_c
 
 	
-	/*for(i=0; i<tamc; i++){
+	for(i=0; i<tamc; i++){
 		printf("%.2f - ", vetor_c[i]);
-	}*/
+	}
 						
 		
 
