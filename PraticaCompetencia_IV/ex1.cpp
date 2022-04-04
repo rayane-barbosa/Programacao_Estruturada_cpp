@@ -6,7 +6,7 @@ using namespace std;
 
 
 //Funcao recebe Gabarito
-void gabarito()
+/*void gabarito()
 {
 	
 	
@@ -32,11 +32,11 @@ void gabarito()
 		}
 	
 	//Imprime os resultados do gabarito
-	/*for(i=1; i<=10; i++){
+	for(i=1; i<=10; i++){
 		printf("Resposta da %.ia questao: %c \n", i, resposta[i]);
-	}*/
+	}
 	
-}	
+}*/
 
 void separaLinha()
 {
@@ -98,20 +98,21 @@ void formulario()
 	}
 	
 	
-typedef int (*corrigir)(int, char, char);
 
-int correcao(int RA[],char reposta[], char respostasQuestionario[], corrigir)
+
+void correcao(resposta,RA, respostaQuestionario)
 {
-    int i, j, l, respostasCertas=0;
+    int i, j, l, respostasCertas=0, alunos[50];
+    
     for(i=0; i<50; i++){
-        for(j=0; j<10; j++){
-            for(l=0; l<10; l++)
+    	alunos[i];
+        for(j=0; j<10; j++)
                 if(respostasQuestionario[j] == reposta[l]){
-                    respostasCertas++;
+                    respostasCertas++; 
                 }
                 
         }
-}
+
 
 	for(i=0; i<50; i++){
         printf("RA: %d, ---- nota: %d  ", RA[i], respostasCertas);
@@ -120,7 +121,7 @@ int correcao(int RA[],char reposta[], char respostasQuestionario[], corrigir)
 }
 
 	
-void menu(){
+/*void menu(){
 	int inicio = 1;
 	int RA[50];
 		
@@ -140,7 +141,7 @@ void menu(){
 			formulario();
 			break;
 		case 3:
-			correcao();
+			correcao(int RA[],char reposta[], char respostasQuestionario[], corrigir);
 			break;
 			
 		default:
@@ -152,17 +153,30 @@ void menu(){
 	
 }
 	
-	
+*/	
 int main(){
-	
-	menu();
-	
-	
-	
-	
-	
-	
-	
+	// gabarito
+	char resposta[10];
+		
+	for( int i=1; i<=10; i++){
+		printf("Insira a resposta da %.ia questao: " , i);
+		scanf("%s" , &resposta[i]);
+     	resposta[i] = toupper (resposta[i]);
+		if(resposta[i] == 'A' || 
+			resposta[i] == 'B' || 
+          	 resposta[i] == 'C' ||
+			resposta[i] == 'D'){		
+				
+			}
+			else{
+				printf("Opcao incorreta\n");
+				i--;
+			}
+			
+		}
+		
+		correcao(char resposta)
+
 
 }
 
