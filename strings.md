@@ -1,4 +1,4 @@
-**Função strcpy** da biblioteca <string.h> é capaz de armazenar uma string literal numa variável strig ou copiar so conteúdo de uma variável string para outra
+**Função strcpy()** da biblioteca <string.h> é capaz de armazenar uma string literal numa variável strig ou copiar so conteúdo de uma variável string para outra
 
 **Sintaxe:**
 
@@ -55,7 +55,7 @@ int main ()
 
 
 
-**Função *strlen***:
+**Função *strlen()***:
 
 ``strlen (string);``
 
@@ -80,13 +80,11 @@ int main ()
 
 
 
-**Função *strcmp***: compara duas strings e devolve um valor inteiro que lhe diz qual das strings vem antes no código ASCII.
+**Função *strcmp()***: compara duas strings e devolve um valor inteiro que lhe diz qual das strings vem antes no código ASCII.
 
 **Sintaxe:**
 
 ``strcmp (string1, string2);``
-
-
 
 ```c
 /* ex1   utilização da função strcmp */
@@ -124,3 +122,35 @@ int main ()
 	return(0);
 }
 ```
+
+
+
+**Função strncat()**: Realiza a concatenação¹ do conteúdo de uma variável a outra, porém deve ser especificado o tamanho a ser concatenado. 
+
+```c
+//Exemplo strncat
+#include <stdio.h>
+#include <string.h>//necessário para strncat
+#include <conio.h>
+int main (void)
+{
+	char str1[20] = "Curso";
+	char str2[17] = " de programacao C";
+	
+	strncat(str1, str2, 15);
+	//concatena a string1 com 15 posições da string2
+	
+	printf("str1 = %s\n", str1);
+	//Será exibido Curso de Programação
+	
+	getch();
+	return 0;
+```
+
+
+
+¹ Concatenação é um termo usado em computação para designar a operação de unir o conteúdo de duas strings.
+
+
+
+**Função strchr()**
