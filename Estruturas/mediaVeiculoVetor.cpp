@@ -22,17 +22,19 @@ int main(){
 		printf("\nAno:");
 		scanf("%d", &v[cont].ano);
 		fflush(stdin);
-		printf("Valor R$:");
+		printf("\nValor R$:");
 		scanf("%f", &v[cont].valor);
 		fflush(stdin);
+		soma+=v[cont].valor;
 		
 	}
 	
-	printf("*******IMPRIME OS DADOS DOS VEICULOS*******")
+	printf("*******IMPRIME OS DADOS DOS VEICULOS*******");
 	for(cont=0; cont<2; cont++){
-		printf("\n\n %io Veiculo \nPlaca: %s - Modelo: %s - Ano: %d - Valor: %f", cont, v[cont].placa, v[cont].modelo, v[cont].ano, v[cont].valor);
+		printf("\n\n %io Veiculo \nPlaca: %s - Modelo: %s - Ano: %d - Valor: %.2f", cont+1, v[cont].placa, v[cont].modelo, v[cont].ano, v[cont].valor);
 		
 	}
+	printf("\n\nMedia: %.2f", soma/2);
 	
 	
 }
