@@ -40,7 +40,9 @@ de retorno deve seguir o padrao:
 
 
 struct Data{
-	char ano[4], mes[2], dia[2];
+	char ano;
+	char mes;
+	char dia;
 	
 };
 
@@ -80,7 +82,7 @@ FILE* abreArquivo(char modo, char caminho[100]){ //; Funcao abre o arquivo
 		case 'l': // modo leitura
 			arquivo = fopen(caminho, "rt");
 			break;
-		case 'a': //modo apende
+		case 'a': //modo adicionar
 			arquivo = fopen(caminho, "a");
 			break;
 			
@@ -93,15 +95,27 @@ FILE* abreArquivo(char modo, char caminho[100]){ //; Funcao abre o arquivo
     	return arquivo;
 	}
 }
-void fecharArquivo(FILE* arquivo){ // Função para fechar o arquivo
-	fclose(arquivo);
+
+
+
+FILE* arquivoErro(){
+	abreArquivo('g', "erro.txt" );
 }
 
 
+struct CABECALHO ler_cabecalho(FILE *arquivo)
+{
+struct CABECALHO cabecalho;
+fread(&cabecalho,sizeof(CABECALHO),1,arquivo);
+return cabecalho;
+}
+
 char* checarCabecalho(const char *cabecalho){
+
 	int i=0;
 	struct CABECALHO id;
 		
+			
 		// VALIDA QTD DE CARACTERES DO CABECALHO
 		if(strlen(cabecalho)!=9){
 			return(COD_SIZE);
@@ -117,8 +131,10 @@ char* checarCabecalho(const char *cabecalho){
 				return(COD_DATA);
 			}
 		}
+	
+			return(COD_OK);
+	
 		
-		return(COD_OK);
 }
 
 char* checarLinha(const char *linha){
@@ -127,6 +143,8 @@ char* checarLinha(const char *linha){
 		
 		// VALIDA QTD DE CARACTERES
 		if(strlen(linha)!=44){
+		
+                                  
 			return(COD_SIZE);
 		}
 		
@@ -181,48 +199,23 @@ char* checarLinha(const char *linha){
 }
 
 
-FILE* arquivoErro(){
-		FILE* erro;
-	erro = abreArquivo('g',"erro.txt");
-	
-}
-
 
 
 
 int main(){
 	FILE* arquivo, erro;
-	char linha[44], l, g, a;
-	int i=0, caracter;
+	char l, g, a;
+	struct CABECALHO cabecalho;
+	int i=0;
 	
-	
-	arquivo = abreArquivo('l',"remessa.txt"); // chamando a funcao abreArquivo
 	//arquivo = fopen("remessa.txt", "rt");
-	//printf ("%s", checarCabecalho("120222058"));
+	arquivo = abreArquivo('l',"remessa.txt"); // chamando a funcao abreArquivo
+	cabecalho = ler_cabecalho(arquivo);
+	//printf("%s", cabecalho);
+	printf ("%s", checarCabecalho(cabecalho);
 	//printf ("%s", checarLinha("23333301234501234567202205302022052912345612"));
 	
 	
 	//Função para ler o arquivo linha a linha
-	do{
 	
-	caracter = fgetc(arquivo);
-		if(caracter =='\n'){
-			i++;
-		}
-		if(i=1){
-			checarCabecalho('caracter');
-		}
-	}
-	
-	while(caracter != EOF);
-	
-	
-		
 }
-
-
-
-
-
-
-
